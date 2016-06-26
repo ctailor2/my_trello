@@ -8,7 +8,7 @@ angular.module('MyTrello')
       }
     );
 
-    $scope.create = function(name){
+    $scope.create = function(name) {
       BoardService.create({ name: name }).then(
         function(board) {
           $scope.name = '';

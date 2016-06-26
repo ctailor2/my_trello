@@ -2,7 +2,8 @@
   .row
     .col-lg-3{ ng: { repeat: 'board in boards' } }
       .card
-        .card-header {{ board.name }}
+        .card-header
+          %a{ ng: { href: "/boards/{{ board.id }}" }, target: '_self' } {{ board.name }}
     .col-lg-3
       .card
         .card-header

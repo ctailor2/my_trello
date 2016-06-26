@@ -19,7 +19,7 @@ class Board < ActiveRecord::Base
   validates :user_id, :name, presence: true
 
   class Entity < Grape::Entity
-    expose :name
+    expose :id, :name
   end
 end
 
