@@ -16,4 +16,6 @@
 
 class ClientToken < ActiveRecord::Base
   include Token
+
+  validates :label, :active, presence: true
 end

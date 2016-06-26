@@ -24,6 +24,8 @@ class SessionToken < ActiveRecord::Base
 
   belongs_to :user
 
+  validates :user_id, :expires_at, presence: true
+
   scope :active, -> { order(created_at: :asc).where('expires_at > ?', DateTime.now.utc) }
 
   private
