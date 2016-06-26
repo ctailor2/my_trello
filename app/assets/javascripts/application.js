@@ -17,4 +17,12 @@
 //= require bootstrap-sprockets
 //= require angular
 //= require angular-rails-templates
+//= require js-cookie
 //= require_tree .
+
+$.ajaxSetup({
+  headers: {
+    // TODO: Extract client token to envar
+    'Client-Token': 'IVfbd2pXd4s_qijchDqxe-28J9XrUD3g'
+  }
+});

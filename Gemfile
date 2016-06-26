@@ -19,6 +19,7 @@ gem 'angular-rails-templates' # Use rails templates with angular
 
 # Backend
 gem 'grape'
+gem 'grape-entity' # Use grape entities for restful object representation
 gem 'hashie-forbidden_attributes'
 gem 'bcrypt', '~> 3.1.7' # Use ActiveModel has_secure_password
 

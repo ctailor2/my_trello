@@ -1,0 +1,14 @@
+%nav.navbar.navbar-fixed-top.navbar-light.bg-faded
+  .container-fluid
+    %a.navbar-brand{ href: '/', target: '_self' } MyTrello
+    - if cookies[:token].present?
+      %ul.nav.navbar-nav
+        %li.nav-item.pull-lg-right
+          %a.nav-link{ href: '#', id: 'logout-link' } Logout
+
+:javascript
+  $('#logout-link').click(function(event) {
+    event.preventDefault();
+    Cookies.remove('token');
+    window.location.reload();
+  });
