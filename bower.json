@@ -3,7 +3,8 @@
     "name": "bower-rails generated lib assets",
     "dependencies": {
       "angular": "1.5.7",
-      "jasmine": "2.4.1"
+      "jasmine": "2.4.1",
+      "js-cookie": "2.1.2"
     }
   },
   "vendor": {
