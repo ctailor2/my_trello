@@ -1,0 +1,14 @@
+.container-fluid
+  .row
+    .col-lg-3{ ng: { repeat: 'board in boards' } }
+      .card
+        .card-header {{ board.name }}
+    .col-lg-3
+      .card
+        .card-header
+          %form{ ng: { submit: "create(name)" } }
+            .input-group
+              %input.form-control.form-control-sm{ type: 'text', placeholder: 'new board name', name: 'name', ng: { model: 'name' } }
+              %span.input-group-btn
+                %button.btn.btn-primary.btn-sm{ type: 'submit', ng: { disabled: '!(name.length > 0)' } } Create
+

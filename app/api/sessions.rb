@@ -31,4 +31,3 @@ class Sessions < Base
   end
 end
 
-

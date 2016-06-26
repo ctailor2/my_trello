@@ -1,5 +1,5 @@
 class BoardsController < ApplicationController
   def index
-    regular_view
+    angular_view('BoardsController')
   end
 end
