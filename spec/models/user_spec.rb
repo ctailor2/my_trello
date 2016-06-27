@@ -17,5 +17,12 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { User.new(name: 'name', email: 'email@email.com', password_digest: 'password_digest') }
+
+  it { should validate_presence_of :name }
+  it { should validate_presence_of :email }
+  it { should validate_presence_of :password_digest }
+  it { should validate_uniqueness_of :email }
+  it { should have_many :session_tokens }
+  it { should have_many :boards }
 end

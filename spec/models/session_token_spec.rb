@@ -18,5 +18,13 @@
 require 'rails_helper'
 
 RSpec.describe SessionToken, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  let(:user) { User.create(name: 'name', email: 'email@email.com', password: 'password', password_confirmation: 'password') }
+
+  subject { SessionToken.new(user_id: user.id, token: 'token', expires_at: DateTime.now.utc + 1.day) }
+
+  it { should validate_presence_of :token }
+  it { should validate_presence_of :user_id }
+  it { should validate_presence_of :expires_at }
+  it { should validate_uniqueness_of :token }
+  it { should belong_to :user }
 end

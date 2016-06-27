@@ -30,5 +30,6 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.3.3' # RSpec for backend testing
   gem 'annotate', '~> 2.6.0' # Annotate schema on models and model spec files
   gem 'jasmine-rails' # Jasmine for frontend testing
+  gem 'shoulda-matchers', '~> 3.1' # Shoulda matchers for convenient testing
 end
 

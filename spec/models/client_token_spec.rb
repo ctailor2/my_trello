@@ -17,5 +17,10 @@
 require 'rails_helper'
 
 RSpec.describe ClientToken, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  subject { ClientToken.new(label: 'label', token: 'token') }
+
+  it { should validate_presence_of :token }
+  it { should validate_presence_of :label }
+  it { should validate_presence_of :active }
+  it { should validate_uniqueness_of :token }
 end
