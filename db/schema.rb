@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160626122856) do
+ActiveRecord::Schema.define(version: 20160626133243) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,15 @@ ActiveRecord::Schema.define(version: 20160626122856) do
   end
 
   add_index "client_tokens", ["token"], name: "index_client_tokens_on_token", unique: true, using: :btree
+
+  create_table "lists", force: :cascade do |t|
+    t.integer  "board_id",   null: false
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "lists", ["board_id"], name: "index_lists_on_board_id", using: :btree
 
   create_table "session_tokens", force: :cascade do |t|
     t.integer  "user_id",    null: false

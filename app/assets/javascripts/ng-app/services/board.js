@@ -1,10 +1,10 @@
 angular.module('MyTrello')
   .service('BoardService', function($http, $q, apiConfig, Board) {
     return {
-      get: function(path) {
+      get: function(path, params) {
         var deferredHandler = $q.defer();
 
-        $http.get(apiConfig.url() + '/v1' + path).then(
+        $http.get(apiConfig.url() + '/v1' + path, { params: params }).then(
           function(successResult) {
             var board = new Board(successResult.data);
             deferredHandler.resolve(board);

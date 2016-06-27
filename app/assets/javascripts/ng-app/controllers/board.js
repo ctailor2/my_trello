@@ -1,8 +1,8 @@
 angular.module('MyTrello')
-  .controller('BoardController', function($scope, $http, BoardService, Board) {
+  .controller('BoardController', function($scope, $http, BoardService, ListService) {
     var path = window.location.pathname;
 
-    BoardService.get(path).then(
+    BoardService.get(path, { 'with_assocs[]': ['lists'] }).then(
       function(board) {
         $scope.board = board;
       },
@@ -10,7 +10,13 @@ angular.module('MyTrello')
       }
     );
 
-    $scope.create = function(name) {
+    $scope.createList = function(name) {
+      ListService.create(path, { name: name }).then(
+        function(list) {
+          $scope.listName = '';
+          $scope.board.lists.push(list);
+        }
+      );
     };
   });
 

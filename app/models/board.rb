@@ -18,8 +18,14 @@ class Board < ActiveRecord::Base
 
   validates :user_id, :name, presence: true
 
+  has_many :lists
+
   class Entity < Grape::Entity
     expose :id, :name
+    expose :lists, using: List::Entity, if: -> (instance, options) do
+      with_assocs = options['with_assocs']
+      with_assocs && with_assocs.include?('lists')
+    end
   end
 end
 

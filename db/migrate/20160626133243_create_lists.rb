@@ -1,0 +1,11 @@
+class CreateLists < ActiveRecord::Migration
+  def change
+    create_table :lists do |t|
+      t.references  :board,  null: false
+      t.string      :name,  null: false
+      t.timestamps null: false
+    end
+
+    add_index :lists, :board_id
+  end
+end

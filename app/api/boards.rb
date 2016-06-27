@@ -1,9 +1,9 @@
 class Boards < Base
-  resource :boards do
-    before do
-      authenticate!
-    end
+  before do
+    authenticate!
+  end
 
+  resource :boards do
     desc 'create board'
     params do
       requires :board, type: Hash do
